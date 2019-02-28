@@ -1,5 +1,6 @@
 # Doorbell
 Doorbell using synchronized websites
+
 Requires domain and server to work
 
 Idea of this app is to create doorbell by using synchronized websites. Clicking the alarm button on any "Doorbell" website will send a request to server, 
