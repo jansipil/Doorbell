@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Doorbell</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+    <script src="/socket.io/socket.io.js"></script>
+    <!--<script src="http://example.com/socket.io.js"></script>-->
+    
+    <audio id="sound" src="audio/doorbell.mp3"></audio>
+    <!--Sound is downloaded from http://www.orangefreesounds.com/
+    License: The sound effect is permitted for non-commercial use under license “Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)-->
+
+    <h1>Doorbell</h1>
+
+    <div id="image">
+        <input id="button" src="/images/green_button.png" type="image" value=1 />
+    </div>
+
+    <p>
+        Doorbell app for situtations when one is needed. Clicking the green button will send alert to server. 
+        Server will send alert, turning the button red and ringing alarm sound in all open "Doorbell" websites (including yours).
+        When the button is red the server will ignore all alarm requests. After a short while the button will turn to green again.        
+    </p>
+    <p>
+        If no one comes to open the door, wait for the button to turn green again and try again.
+    </p>
+
+    <div id="footer">
+        Author: Janne Sipilä, jannsipila(at)gmail.com<br>
+        github.com/jansipil
+    </div>
+
+    <script>
+        var socket = io();
+        //Change socket to the below when not running locally
+        //var socket = io.connect('http://example.com');
+        window.addEventListener("load", function(){
+            var buttonState = document.getElementById("button");
+            socket.emit("init");
+            button.addEventListener("click", function() { 
+                socket.emit("check", Number(this.value)); 
+            });
+        });
+
+        socket.on('change', function(state){
+            if(state){
+                document.getElementById("button").src="images/green_button.png";
+                document.getElementById("button").value=1;
+            }
+            else{
+                document.getElementById("button").src="images/red_button.png";
+                document.getElementById("button").value=0;
+                document.getElementById('sound').play();
+            }
+        });
+
+        socket.on('init', function(){
+            document.getElementById("button").src="images/red_button.png";
+            document.getElementById("button").value=0;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,48 @@
+html {
+  font-size: 10px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+h1 {
+  font-size: 60px;
+  text-align: center;
+}
+
+p, li {
+  font-size: 20px;  
+  line-height: 2;
+  letter-spacing: 1px;
+}
+
+html {
+  background-color: #FFFFFF;
+}
+
+body {
+  width: 600px;
+  height: auto;
+  margin: 0 auto;
+  background-color: #FF9500;
+  padding: 0 20px 20px 20px;
+  border: 5px solid black;
+}
+
+h1 {
+  margin: 0;
+  padding: 20px 0;  
+  color: #00539F;
+}
+
+div {
+  font-size: 14px;
+}
+#image{
+  display: block;
+  margin: 0 auto;
+  width: 65%;
+}
+#footer{
+  position:relative;
+  bottom:0;
+  left:0;
+}
