@@ -3,8 +3,10 @@ var app = express();
 var server = app.listen(8080);
 var io = require('socket.io').listen(server);
 var path = require('path');
+var fs = require('fs')
 
-app.use(express.static(path.join(__dirname, '/public')));
+const dirPath = path.join(__dirname, '/public');
+app.use(express.static(dirPath));
 
 console.log('Server running on port 8080');
 
@@ -23,19 +25,22 @@ io.on('connection', function (socket) {
     }
   })
 
-  socket.on('check', function(data) {
-    value = data;
+  socket.on('check', function(value) {
     if (state === "green" && value === 1) {
       //console.log("change:" + value);
       state = "red";
-      io.emit('change', 0);
-      socket.broadcast.emit('change', 0);
-      setTimeout(function(){
-        state = "green";
-        //console.log(state);
-        io.emit('change', 1);
-        socket.broadcast.emit('change', 1);
-      }, 10000);      
+      fs.readdir(dirPath + "/audio", function(err, files){
+        randomSound = files[Math.floor(Math.random() * files.length)];
+        //console.log(randomSound);
+        io.emit('change', 0, randomSound);
+        socket.broadcast.emit('change', 0, randomSound);
+        setTimeout(function(){
+          state = "green";
+          //console.log(state);
+          io.emit('change', 1);
+          socket.broadcast.emit('change', 1);
+        }, 10000);
+      });
     }
   });
 });
