@@ -30,7 +30,7 @@ io.on('connection', function (socket) {
       //console.log("change:" + value);
       state = "red";
       fs.readdir(dirPath + "/audio", function(err, files){
-        randomSound = files[Math.floor(Math.random() * files.length)];
+        let randomSound = files[Math.floor(Math.random() * files.length)];
         //console.log(randomSound);
         io.emit('change', 0, randomSound);
         socket.broadcast.emit('change', 0, randomSound);
