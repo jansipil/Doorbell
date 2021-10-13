@@ -5,7 +5,7 @@
   "main": "webserver.js",
   "dependencies": {
     "express": "^4.16.4",
-    "socket.io": "^2.1.1"
+    "socket.io": "^2.4.1"
   },
   "devDependencies": {},
   "scripts": {
