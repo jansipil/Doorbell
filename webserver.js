@@ -21,7 +21,7 @@ var app = express();
 
 
 var server = app.listen(port);
-var io = require('socket.io').listen(server);
+var io = require('socket.io')(server);
 var path = require('path');
 var fs = require('fs')
 
