@@ -46,3 +46,22 @@ div {
   bottom:0;
   left:0;
 }
+
+/* Dark mode for the lulz
+   hello Hacktoberfest 2022 */
+html.dark {
+  background: linear-gradient(90deg, rgba(68,64,0,1) 0%, rgba(0,0,0,1) 35%, rgba(0,0,0,1) 70%, rgba(68,64,0,1) 100%);
+}
+
+html.dark body {
+  background-color: #000;
+}
+
+html.dark p,
+html.dark li {
+  color: #33FF55;
+}
+
+html.dark h1 {
+  color: #CCF7FF;
+}
