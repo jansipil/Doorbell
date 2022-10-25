@@ -8,8 +8,21 @@ window.addEventListener("load", function () {
 	button.addEventListener("click", function () {
 		socket.emit("check", Number(this.value));
 	});
+
+
+	var checkbox = document.getElementsByClassName("checkbox")[0];
+	checkbox.addEventListener("click", function () {
+	console.log("IN");
+	if(checkbox.checked) {
+		document.getElementsByTagName("html")[0].classList.add("dark");
+	}
+	else {
+		document.getElementsByTagName("html")[0].classList.remove("dark");
+	}
 });
 
+
+});
 socket.on('change', function (state, sound) {
 	if (state) {
 		document.getElementById("button").src = "images/green_button.png";
@@ -29,3 +42,5 @@ socket.on('init', function () {
 function playSound(source) {
 	new Audio("audio/" + source).play();
 }
+
+
