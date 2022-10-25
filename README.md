@@ -9,7 +9,14 @@ with their smartphone and ring the doorbell.
 
 Downside of this is that you need to have a spare web server lying around instead of physical doorbell.
 
-Created with Node.js + HTML/CSS
-Requires node modules
+Created with Node.js + HTML/CSS.
+
+Uses [nvm](https://github.com/nvm-sh/nvm#installing-and-updating) for defining Node version. Set the .nvmrc defined Node.js version into use:
+```bash
+nvm install
+nvm use
+```
+
+Project requires node modules
 - express
 - socket.io
