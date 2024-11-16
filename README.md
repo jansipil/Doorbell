@@ -17,6 +17,11 @@ nvm install
 nvm use
 ```
 
+Start the server with following command. 
+```bash
+node webserver.js
+```
+
 Project requires node modules
 - express
 - socket.io
