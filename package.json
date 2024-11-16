@@ -4,8 +4,8 @@
   "description": "",
   "main": "webserver.js",
   "dependencies": {
-    "express": "^4.16.4",
-    "socket.io": "^4.3.1"
+    "express": "^4.21.1",
+    "socket.io": "^4.8.1"
   },
   "devDependencies": {
     "argparse": "^2.0.1"
