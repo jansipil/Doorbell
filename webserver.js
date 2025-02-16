@@ -1,8 +1,12 @@
 #!/usr/bin/env node
 'use strict';
 
-// Default port for this server is 8080. Overridable with -p/--port.
-let port = 8080;
+// Default port for this server is 8080, or DOORBELL_PORT env variable. 
+// The default is overridable with -p/--port.
+if(process.env.DOORBELL_PORT) {
+  console.log(`DOORBELL_PORT set from env variable: ${process.env.DOORBELL_PORT}`)
+}
+const port = process.env.DOORBELL_PORT || 8080;
 
 const { ArgumentParser } = require('argparse');
 const { version } = require('./package.json');
@@ -14,7 +18,7 @@ const parser = new ArgumentParser({
 parser.add_argument('-p', '--port', { help: 'Define port for web server' });
 let args = parser.parse_args();
 
-if(args.port) port = parseInt(args.port);
+if(args.port && !process.env.port) port = parseInt(args.port);
 
 var express = require('express');
 var app = express();
