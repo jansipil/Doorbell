@@ -25,3 +25,39 @@ node webserver.js
 Project requires node modules
 - express
 - socket.io
+
+## Running with docker compose
+
+To run the Doorbell app using docker compose, follow these steps:
+
+1. **Ensure Docker and docker compose are installed**  
+   If you don't have them installed, follow the instructions here:  
+   - [Docker Installation Guide](https://docs.docker.com/get-docker/)  
+   - [docker compose Installation](https://docs.docker.com/compose/install/)  
+
+2. **Clone the repository and navigate to the project folder**
+   ```bash
+   git clone <repository-url>
+   cd <project-folder>
+   ```
+
+3. Define the port (optional)
+
+If you want to change the default port (8080), create a .env file and set the port number:
+
+```bash
+echo "PORT=4000" > .env
+```
+
+4. Start the application with docker compose:
+```bash
+docker compose up -d
+```
+
+The app will be available at `http://localhost:3000` (or the port defined in `.env`).
+
+5. Stop the application
+
+```bash
+docker-compose down
+```

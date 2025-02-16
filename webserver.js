@@ -18,7 +18,7 @@ const parser = new ArgumentParser({
 parser.add_argument('-p', '--port', { help: 'Define port for web server' });
 let args = parser.parse_args();
 
-if(args.port && !process.env.port) port = parseInt(args.port);
+if(args.port && !process.env.DOORBELL_PORT) port = parseInt(args.port);
 
 var express = require('express');
 var app = express();

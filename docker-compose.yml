@@ -7,7 +7,6 @@ services:
       - .:/app
     ports:
       - "8080:8080"
-      - "12345:12345"
     command: ["node", "webserver.js"]
     environment:
       - NODE_ENV=production
