@@ -46,7 +46,7 @@ To run the Doorbell app using docker compose, follow these steps:
 If you want to change the default port (8080), create a .env file and set the port number:
 
 ```bash
-echo "PORT=4000" > .env
+echo "DOORBELL_PORT=4000" > .env
 ```
 
 4. Start the application with docker compose:
@@ -54,7 +54,7 @@ echo "PORT=4000" > .env
 docker compose up -d
 ```
 
-The app will be available at `http://localhost:3000` (or the port defined in `.env`).
+The app will be available at `http://localhost:8080` (or the port defined in `.env`).
 
 5. Stop the application
 
